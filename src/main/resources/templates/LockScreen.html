@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layui</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="assets/css/layui.css" media="all">
+<link rel="stylesheet" href="assets/css/LockScreen.css" media="all">
+<script type="text/javascript">
+	var nowTime;
+	function play() {
+		var time = new Date();
+		var h = time.getHours()
+		var m = time.getMinutes()
+		var s = time.getSeconds()
+		// add a zero in front of numbers<10
+		m = checkTime(m)
+		s = checkTime(s)
+		nowTime = h + ":" + m + ":" + s;
+		document.getElementById("time").innerHTML = nowTime;
+	}
+	setInterval(play, 1000);
+
+	function checkTime(i) {
+		if (i < 10) {
+			i = "0" + i
+		}
+		return i
+	}
+</script>
+</head>
+<body>
+	<!-- 设置背景图片 -->
+	<div class="web_bg"
+		style="background-image: url(assets/images/bg.jpg);"></div>
+
+	<div class="showLock">
+		<table class="layui-form" style="width: 100%;">
+			<tr>
+				<td><div id="Realtime">
+						<span id="time"></span>
+					</div></td>
+			</tr>
+			<tr>
+				<td><img class="HeadPortrait" src="assets/images/logo.png" />
+					<h3 class="htwo">Admin</h3></td>
+			</tr>
+			<tr>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<input type="password" id="password" name="password"
+								placeholder="锁屏状态中... 请输入密码" autocomplete="off"
+								class="layui-input">
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="layui-form-item">
+						<div class="layui-input-block">
+							<button id="simpleonbtn" class="layui-btn" lay-submit
+								lay-filter="fromVerify">立即解锁</button>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

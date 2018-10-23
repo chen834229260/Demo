@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.MenuPermissionDao">
+    <resultMap type="com.example.domain.MenuPermission" id="menuPermission">
+        <id column="id" property="id" javaType="java.lang.Integer" jdbcType="NUMERIC"/>
+        <id column="name" property="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <id column="href" property="href" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <id column="menuImg" property="menuImg" javaType="java.lang.String" jdbcType="VARCHAR"/>
+        <id column="permission" property="permission" javaType="java.lang.String" jdbcType="VARCHAR"/>
+    	<id column="parent_id" property="parent_id" javaType="java.lang.Integer" jdbcType="NUMERIC"/>
+    	<id column="child_id" property="child_id" javaType="java.lang.Integer" jdbcType="NUMERIC"/>
+    </resultMap>
+    <select id="getParentId" resultMap="menuPermission"> 
+        select * from menu_permission where parent_id = 0;
+    </select>
+      <select id="getChildId" resultMap="menuPermission"> 
+        select * from menu_permission where child_id > 0;
+    </select>
+    
+</mapper>

@@ -1,0 +1,20 @@
+package com.example.domain;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import lombok.Data;
+
+@Data
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3842773964667892236L;
+	private int id;
+	private String username;
+	private String passwd;
+	private String picture;
+	private Date createTime;
+	private String status;
+}
